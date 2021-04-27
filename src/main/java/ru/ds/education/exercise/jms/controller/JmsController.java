@@ -4,7 +4,6 @@ package ru.ds.education.exercise.jms.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -21,7 +20,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.List;
 
 @Component
-@Slf4j
 public class JmsController {
 
     @Autowired
