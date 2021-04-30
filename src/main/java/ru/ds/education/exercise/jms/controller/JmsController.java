@@ -6,22 +6,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
+import org.springframework.stereotype.Controller;
 import ru.ds.education.exercise.cbr.model.CurrencyModel;
 import ru.ds.education.exercise.cbr.service.ServiceCbr;
 import ru.ds.education.exercise.jms.mapper.DefaultMapper;
 import ru.ds.education.exercise.jms.model.RequestMessage;
 import ru.ds.education.exercise.jms.model.ResponseMessage;
 
-import javax.jms.JMSException;;
+import javax.jms.JMSException;
 import javax.jms.TextMessage;
 import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.List;
 
-@Component
+@Controller
 public class JmsController {
 
     @Autowired
