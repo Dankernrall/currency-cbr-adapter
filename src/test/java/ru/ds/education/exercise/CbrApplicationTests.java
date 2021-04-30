@@ -1,29 +1,33 @@
 package ru.ds.education.exercise;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
+import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import ru.ds.education.exercise.jms.controller.JmsController;
+import org.springframework.messaging.handler.annotation.SendTo;
+import ru.ds.education.exercise.cbr.model.CurrencyModel;
+import ru.ds.education.exercise.cbr.service.ServiceCbr;
 
-import javax.jms.TextMessage;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 @SpringBootTest
 class CbrApplicationTests {
 
 	@Autowired
-	private JmsController controller;
+	private ServiceCbr serviceCbr;
+
+
 
 	@Test
 	public void test() throws Exception{
-		TextMessage message = null;
-		message.setText("{ \"onDate\" : \"2021.03.15\" }");
-		//controller.getMessage(message);
-		//Пока что не понял как делать тесты с JMS
+		LocalDateTime Date = LocalDateTime.of(2021,4,30,12,00);
+		List<CurrencyModel> actual = serviceCbr.cbr(Date);
+		CurrencyModel expected = new CurrencyModel("AUD",57.85);
+		Assertions.assertEquals(expected.getCurrencyModelValue(),actual.get(0).getCurrencyModelValue());
 	}
 
 }

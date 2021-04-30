@@ -30,8 +30,7 @@ public class JmsController {
     ServiceCbr serviceCbr;
     @Autowired
     ObjectMapper objectMapper;
-    @Autowired
-    JmsTemplate jmsTemplate;
+
 
     @JmsListener(destination = "RU-DS-EDUCATION-CBR-REQUEST")
     @SendTo("RU-SD-EDUCATION-CBR-RESPONSE")
