@@ -8,5 +8,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/cbrdb
     username: cbruser
     password: letstry
+  jms:
+    template:
+      default-destination: RU-SD-EDUCATION-CBR-RESPONSE
+      receive-timeout: 10
 server:
   port: 8081
