@@ -15,7 +15,7 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(value = {ApiBadRequest.class})
     public ResponseEntity<Object> handleBadRequest(ApiBadRequest e){
-        jmsTemplate.convertAndSend(0);
+        jmsTemplate.convertAndSend("Error");
         return new ResponseEntity<>("", HttpStatus.BAD_GATEWAY);
     }
 
